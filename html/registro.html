@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../Estilos/estilo-registro.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="header">
+        <img class="logo" src="../imagenes/film.svg" alt="Logo">
+        <p><a href="index.html">Volver atras</a></p>
+    </div>
+
+    <div class="contenedor-mayor">
+        <form action="">
+            <div class="contenedor-menor">
+                <label for="nombre"></label>
+                <input type="text" name="Nombre" id="nombre" placeholder="Nombre">
+            </div>
+            <div class="contenedor-menor">
+                <label for="edad">Edad: </label>
+                <input type="number" name="Edad" id="edad">
+            </div>
+            <div class="contenedor-menor">
+                <label for="sexo">Sexo:</label>
+                <input type="radio" name="sexo" id="sexo-m">M
+                <input type="radio" name="sexo" id="sexo-f">F
+            </div>
+            <div class="contenedor-menor">
+                <label for="password">Contraseña:</label>
+                <input type="password" name="password" id="password">
+            </div>
+            <div class="contenedor-menor">
+                <label for="rep-password">Repite la Contraseña:</label>
+                <input type="password" name="rep-password" id="rep-password">
+            </div>
+        </form>
+
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            <div class="contenedor-menor">
+                <label for="fileToUpload">Select image to upload:</label>
+                <input type="file" name="fileToUpload" id="fileToUpload">
+                <input type="submit" value="Upload Image" name="submit">
+            </div>
+        </form>
+    </div>
+
+    <div class="footer"></div>
+</body>
+
+</html>
