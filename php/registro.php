@@ -11,8 +11,8 @@
 
 <body>
    
-    <p><a class="boton-volver" href="/html/main.html">Volver atras</a></p>
-   
+    <p><a class="boton-volver" href="../php/main.php">Volver atras</a></p>
+  
     <div class="contenedor-mayor">
         <div class="contenedor-cabezera-registro">Formulario de registro</div>
         <form action="">

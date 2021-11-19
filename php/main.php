@@ -8,15 +8,14 @@
     <title>Document</title>
 </head>
 <body>
-  
-   
+    
    <div class="header">
        <img  class="logo" src="../imagenes/film.svg" alt="Logo">
        <div class="loggin-box">
             <input type="text" placeholder="ID" name="login">
             <input type="text" placeholder="password" name="password">
            <button>Entrar</button>
-            <p><a href="registro.html">Registrarse</a></p>
+            <p><a href="registro.php">Registrarse</a></p>
         </div> 
    </div>
 
