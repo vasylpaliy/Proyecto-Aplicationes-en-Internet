@@ -1,62 +1,69 @@
 body {
 margin:0;
 padding:0;
+background-color:rgba(40, 42, 53, 0.95) ;
 }
-
-.header{
-    overflow: hidden;
-    padding: 1%;
-    background: #282A35;
-    margin-bottom: 5%;
-}
-.header p{
-  float: right;
-  margin-right: 15%;
-
-}
-.header a{
+.boton-volver{
   color:#f1f1f1 ;
   text-decoration: none;
   background-color: #04AA6D;
   border-radius: 20px;
   font-size: 18px;
   padding: 10px 25px ;
+  margin-left: 5%;
+  
 }
-.header a:hover{
+.boton-volver:hover{
   background-color: #048052;
 }
+
+.contenedor-cabezera-registro{
+background-color: #04AA6D;
+text-align: center;
+color:#f1f1f1;
+padding: 20px;
+border-radius: 20px 20px 0px 0px;
+font-size: 200%;
+}
+
+
+
 
 .contenedor-mayor{
   
   width: 60%;
   margin: auto;
-  background-color: rgba(40, 42, 53, 0.95);
+  background-color: #f1f1f1;
   border-radius: 20px;
-  padding: 20px;
-  
+  padding: 0px 0px 20px 0px;
+  box-shadow: 0px 8px 24px #00000055; 
 
   
 }
-
-
-label {
-  display: inline-block;
-  width: 150px;
-  color:#f1f1f1 ;
- font-size: 20px;
- text-shadow: 1px 1px 1px black;
-} 
-
 .contenedor-menor {
   margin: 15px;
-  text-align: center;
+}
+form{
+  padding-left: 55px;
+}
+label{
+  font-weight: bold;
 }
 
-.contenedor-menor input{
-  background-color: rgba(40, 42, 53, 0.95);
-  
-  color: #04AA6D;
-  border-radius: 10px;
-  border-color: #04AA6D;
-  
+input[type=submit]{
+  background-color: #04AA6D;
+  color: #f1f1f1;
+  border-radius: 20px;
+  border-style: none;
+  padding: 15px;
+}
+input[type=submit]:hover{
+  background-color: #048052;
+
+}
+input[type=file]{
+  background-color: #04AA6D;
+  color: #f1f1f1;
+  border-radius: 20px;
+  border-style: none;
 }

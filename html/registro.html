@@ -10,42 +10,47 @@
 </head>
 
 <body>
-    <div class="header">
-        <img class="logo" src="../imagenes/film.svg" alt="Logo">
-        <p><a href="/html/main.html">Volver atras</a></p>
-    </div>
-
+   
+    <p><a class="boton-volver" href="/html/main.html">Volver atras</a></p>
+   
     <div class="contenedor-mayor">
+        <div class="contenedor-cabezera-registro">Formulario de registro</div>
         <form action="">
             <div class="contenedor-menor">
                 <label for="nombre">Nombre: </label>
+                <br>
                 <label for="nombre"></label>
-                <input type="text" name="Nombre" id="nombre" placeholder="Nombre">
+                <input type="text" name="Nombre" id="nombre" >
             </div>
+           
             <div class="contenedor-menor">
                 <label for="edad">Edad: </label>
+                <br>
                 <input type="number" name="Edad" id="edad">
             </div>
             <div class="contenedor-menor">
                 <label for="sexo">Sexo:</label>
+                <br>
                 <input type="radio" name="sexo" id="sexo-m">M
                 <input type="radio" name="sexo" id="sexo-f">F
             </div>
             <div class="contenedor-menor">
                 <label for="password">Contraseña:</label>
+                <br>
                 <input type="password" name="password" id="password">
             </div>
             <div class="contenedor-menor">
                 <label for="rep-password">Repite la Contraseña:</label>
+                <br>
                 <input type="password" name="rep-password" id="rep-password">
             </div>
-        </form>
-
-        <form action="upload.php" method="post" enctype="multipart/form-data">
             <div class="contenedor-menor">
-                <label for="fileToUpload">Select image to upload:</label>
+                <label for="fileToUpload">Seleccionar imagen:</label>
                 <input type="file" name="fileToUpload" id="fileToUpload">
-                <input type="submit" value="Upload Image" name="submit">
+                <br>
+                <br>
+                <br>
+                <input type="submit" value="Enviar Formulario" name="submit">
             </div>
         </form>
     </div>
