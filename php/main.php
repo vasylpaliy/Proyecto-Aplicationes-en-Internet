@@ -50,7 +50,7 @@ while($data = mysqli_fetch_array($records))
 ?>
   <?php echo "<tr bgcolor='#E6E6E6'>";
     
-    echo "<td>"."imagen-pelicula" ."</td>";
+    echo "<td>".$data['url_pic']."</td>";
     echo "<td >".$data['title']."</td>" ;
     echo "<td>".$data['date']."</td>";
     echo "<td>".$data['desc']."</td>";
