@@ -10,3 +10,11 @@ while($data = mysqli_fetch_array($records))
     echo "<td><p>Nota pelicula</p></td>";
     echo "</table>"
    ?>
+
+
+
+
+
+
+
+.$data['url_pic']."</td>

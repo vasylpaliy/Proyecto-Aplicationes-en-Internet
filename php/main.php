@@ -33,7 +33,7 @@
 
     <div class="contenedor-principal">
     <table class="sortable" id="mi-tabla">
-        <tr >
+        <tr class= "cabecera-tabla">
             <th width=25%>Poster</th>
             <th width=10%>Titulo</th>
             <th width=10%>Fecha estreno</th>
@@ -42,7 +42,7 @@
         </tr>
        
 <?php
-$records = mysqli_query($obj_conexion,"SELECT * FROM movie"); // fetch data from database
+$records = mysqli_query($obj_conexion,"SELECT * FROM movie"); 
 
 
 while($data = mysqli_fetch_array($records))
@@ -50,8 +50,8 @@ while($data = mysqli_fetch_array($records))
 ?>
   <?php echo "<tr bgcolor='#E6E6E6'>";
     
-    echo "<td>".$data['url_pic']."</td>";
-    echo "<td >".$data['title']."</td>" ;
+    echo "<td><img src="."../imagenes-poster/images/".$data['url_pic'].">"."</td>";  
+    echo "<td >"."<a href="."pagina-pelicula.php>".$data['title']."</a>"."</td>" ;
     echo "<td>".$data['date']."</td>";
     echo "<td>".$data['desc']."</td>";
     echo "<td><p>Nota pelicula</p></td> </tr>";
@@ -67,7 +67,7 @@ while($data = mysqli_fetch_array($records))
 
 
 
-<?php mysqli_close($obj_conexion); // Close connection ?>
+<?php mysqli_close($obj_conexion);      //Cierro la conexion  ?>                       
 
 
 </div>
