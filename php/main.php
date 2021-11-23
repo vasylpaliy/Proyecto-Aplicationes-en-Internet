@@ -55,10 +55,6 @@ while($data = mysqli_fetch_array($records))
     echo "<td>".$data['date']."</td>";
     echo "<td>".$data['desc']."</td>";
     echo "<td><p>Nota pelicula</p></td> </tr>";
-    
-  
-   
-  
 
 }
 ?>
