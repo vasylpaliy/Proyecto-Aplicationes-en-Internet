@@ -9,6 +9,32 @@ padding:0;
     background: #282A35;
 }
 
+.buscar{
+    overflow: hidden;
+    display: inline-block;
+    height: 50px;
+    
+}
+.buscar input{
+    height: 2.3vh;
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 25%;
+    border-style: solid;
+    border-color: #f1f1f1;
+    border-radius: 5px; 
+    width: 95%;
+    margin: 0;
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    background-image: url('../imagenes/search-icon.svg');
+    background-repeat: no-repeat;
+    text-align: center; 
+}
+::placeholder{
+    text-align: center;
+}
 .loggin-box{
     float: right; 
 }
@@ -47,6 +73,7 @@ background-color: #048052;
     border-style: solid;
     border-color: #f1f1f1;
     border-radius: 5px;
+    text-align: center; 
 }
 .contenedor-principal{
 width: 90%;
@@ -57,3 +84,4 @@ border-radius: 20px;
 padding: 20px;
 box-shadow: 0px 8px 24px #00000055; 
 }
+
