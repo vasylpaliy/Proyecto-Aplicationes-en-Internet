@@ -19,24 +19,31 @@
 <body>
 
     <div class="header">
-
         <img class="logo" src="../imagenes/film.svg" alt="Logo">
 
         <div class="buscar"><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar..."></div>
-
-
         <div class="loggin-box">
+            <?php
+            $sql = "SELECT id FROM users WHERE id=" . $_GET['id'];
+            if ($result = $obj_conexion->query($sql)) {
+                $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                echo " <a href=" . "pagina-usuario.php?id=" . $row['id'] . ">";
+                $result->close();
+            }; ?>
+
 
             <img class="logo-usuario" src="../imagenes/logo-usuario.svg" alt="Logo-usuario">
+            </a>
             <p class="nombre-usuario">
                 <?php
                 $sql = "SELECT name FROM users WHERE id=" . $_GET['id'];
                 if ($result = $obj_conexion->query($sql)) {
                     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-                    echo  $row['name'];
+                    echo  "" . $row['name'];
                     $result->close();
                 }; ?>
             </p>
+            <a href="main.php">Salir</a>
         </div>
     </div>
 
@@ -49,11 +56,11 @@
                 <th width=40%>Descripcion</th>
                 <th width=15%>Puntuacion</th>
             </tr>
-
             <?php
             $records = mysqli_query($obj_conexion, "SELECT * FROM movie");
             while ($data = mysqli_fetch_array($records)) {
             ?>
+
             <?php echo "<tr bgcolor='#E6E6E6'>";
                 echo "<td><img src=" . "../imagenes-poster/images/" . $data['url_pic'] . ">" . "</td>";
                 echo "<td >" . "<a href=" . "pagina-pelicula.php?id=" . $data['id'] . ">" . $data['title'] . "</a>" . "</td>";
@@ -63,16 +70,9 @@
             }
             ?>
         </table>
-
-
-
         <?php mysqli_close($obj_conexion);      //Cierro la conexion  
         ?>
-
-
     </div>
-
-
     <div class="footer"></div>
 
 </body>
