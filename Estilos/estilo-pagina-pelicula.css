@@ -42,13 +42,28 @@ button:hover{
     box-shadow: 0px 8px 24px #00000055; 
 }
 
-.comentarios{
-    width: 90%;
+.caja-comentarios{
+    
     height: auto;
     margin: auto;
     background-color: #f1f1f1;
     border-radius: 20px;
-    padding: 20px;
     box-shadow: 0px 4px 24px #00000055; 
+    width: 20%;
 }
-        
+
+.comentario-nombre{
+    background-color: #04AA6D;
+    text-align: center;
+    color:#f1f1f1;
+    border-radius: 20px;
+}
+
+.comentario-texto{
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.boton-comentario{
+    
+}
