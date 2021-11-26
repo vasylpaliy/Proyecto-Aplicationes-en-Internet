@@ -19,53 +19,49 @@
     </div>
 
     <div class="contenedor-principal">
-        <div class="datos-pelicula">
-            <table>
 
-                <?php
-                $records = mysqli_query($obj_conexion, "SELECT * FROM movie WHERE id=" . $_GET['id'] . "");
-                while ($data = mysqli_fetch_array($records)) {
-                ?>
-                <?php
 
-                    echo "<img src=" . "../imagenes-poster/" . $data['url_pic'] . ">";
-                    echo  $data['title'];
-                    echo $data['date'] . "</td>";
-                    echo $data['desc'] . "</td>";
-                    echo "<p>Nota pelicula</p></td> </tr>";
-                }
-                ?>
-            </table>
+        <div class="informacion-pelicula">
+            <?php
+            $records = mysqli_query($obj_conexion, "SELECT * FROM movie WHERE id=" . $_GET['id'] . "");
+            while ($data = mysqli_fetch_array($records)) {
+                echo "<img src=" . "../images/" . $data['url_pic'] . "  style='float:left;'>";
+                echo $data['title'] . "<br>";
+                echo $data['date'] . "<br>";
+                echo $data['desc'] . "<br>";
+                echo "<p>Nota pelicula</p><br>";
+            ?>
         </div>
 
-        <form action="">
-            <textarea name="anadir-comentarios" id="anadir-comentarios" cols="30" rows="3" placeholder="Deje su comneario agui"></textarea>
-            <input type="submit" value="Dejar comentario" class="boton-comentario">
-        </form>
+    <?php
+            }
+    ?>
 
-        <?php
-        $records = mysqli_query($obj_conexion, "SELECT * FROM moviecomments WHERE movie_id=" . $_GET['id']);
-        while ($data = mysqli_fetch_array($records)) {
-        ?>
-            <div class="caja-comentarios">
-                <p class="comentario-nombre">
-                    <?php
-                    ?>
-                    <?php
-                    $recordss = mysqli_query($obj_conexion, "SELECT name FROM users WHERE id='" . $data['user_id'] . "'");
-                    while ($dataa = mysqli_fetch_array($recordss)) {
-                        echo $dataa['name'];
-                    }
-                    ?>
-                </p>
-                <div class="comentario-texto">
-                    <?php echo $data['comment']; ?>
-                </div>
+
+
+    <?php
+    $records = mysqli_query($obj_conexion, "SELECT * FROM moviecomments WHERE movie_id=" . $_GET['id']);
+    while ($data = mysqli_fetch_array($records)) {
+    ?>
+        <div class="caja-comentarios">
+            <p class="comentario-nombre">
+                <?php
+                ?>
+                <?php
+                $recordss = mysqli_query($obj_conexion, "SELECT name FROM users WHERE id='" . $data['user_id'] . "'");
+                while ($dataa = mysqli_fetch_array($recordss)) {
+                    echo $dataa['name'];
+                }
+                ?>
+            </p>
+            <div class="comentario-texto">
+                <?php echo $data['comment']; ?>
             </div>
-        <?php
-        }
-        mysqli_close($obj_conexion);
-        ?>
+        </div>
+    <?php
+    }
+    mysqli_close($obj_conexion);
+    ?>
 
     </div>
 </body>

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <?php include '../scripts-php/db_conection.php'; ?>
-
+    <?php include '../scripts-php/sesion.php';  ;?>
     <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
     <script src="../js/buscar.js"></script>
     <script src="../js/loggin-validacion.js"></script>
@@ -24,24 +24,15 @@
         <div class="buscar"><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar..."></div>
         <div class="loggin-box">
             <?php
-            $sql = "SELECT id FROM users WHERE id=" . $_GET['id'];
-            if ($result = $obj_conexion->query($sql)) {
-                $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-                echo " <a href=" . "pagina-usuario.php?id=" . $row['id'] . ">";
-                $result->close();
-            }; ?>
+                echo " <a href=" . "pagina-usuario.php?id=" .$_SESSION['id_usuario'].">";
+                
+            ; ?>
 
 
             <img class="logo-usuario" src="../imagenes/logo-usuario.svg" alt="Logo-usuario">
             </a>
             <p class="nombre-usuario">
-                <?php
-                $sql = "SELECT name FROM users WHERE id=" . $_GET['id'];
-                if ($result = $obj_conexion->query($sql)) {
-                    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-                    echo  "" . $row['name'];
-                    $result->close();
-                }; ?>
+                <?php echo $_SESSION['nombre_usuario'] ;?>
             </p>
             <a href="main.php">Salir</a>
         </div>
@@ -61,9 +52,9 @@
             while ($data = mysqli_fetch_array($records)) {
             ?>
 
-            <?php echo "<tr bgcolor='#E6E6E6'>";
-                echo "<td><img src=" . "../imagenes-poster/images/" . $data['url_pic'] . ">" . "</td>";
-                echo "<td >" . "<a href=" . "pagina-pelicula.php?id=" . $data['id'] . ">" . $data['title'] . "</a>" . "</td>";
+            <?php echo "<tr bgcolor='#E6E6E6' style="."text-align:center".">";
+                echo "<td ><img width="."50%"." height="."50%"." src=" . "../images/" . $data['url_pic'] . ">" . "</td>";
+                echo "<td >" . "<a href=" . "pagina-pelicula-registrado.php?id=" . $data['id'] . ">" . $data['title'] . "</a>" . "</td>";
                 echo "<td>" . $data['date'] . "</td>";
                 echo "<td>" . $data['desc'] . "</td>";
                 echo "<td><p>Nota pelicula</p></td> </tr>";

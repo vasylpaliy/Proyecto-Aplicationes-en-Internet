@@ -64,6 +64,10 @@ button:hover{
     padding-bottom: 10px;
 }
 
-.boton-comentario{
-    
+.informacion-pelicula{
+   text-align: center;
+   overflow: hidden;
+   font-size: 4vh;
+   margin-bottom: 5%;
+
 }

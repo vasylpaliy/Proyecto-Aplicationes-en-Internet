@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="../Estilos/style.css?v=<?php echo time(); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <?php include '../scripts-php/db_conection.php'; ?>
-   
+
     <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
     <script src="../js/buscar.js"></script>
     <script src="../js/loggin-validacion.js"></script>
@@ -47,13 +47,11 @@
 
             <?php
             $records = mysqli_query($obj_conexion, "SELECT * FROM movie");
-
-
             while ($data = mysqli_fetch_array($records)) {
             ?>
-            <?php echo "<tr bgcolor='#E6E6E6'>";
+            <?php echo "<tr bgcolor='#E6E6E6' style="."text-align:center".">";
 
-                echo "<td><img src=" . "../imagenes-poster/images/" . $data['url_pic'] . ">" . "</td>";
+                echo "<td ><img width=" . "50%" . " height=" . "50%" . " src=" . "../images/" . $data['url_pic'] . ">" . "</td>";
                 echo "<td >" . "<a href=" . "pagina-pelicula.php?id=" . $data['id'] . ">" . $data['title'] . "</a>" . "</td>";
                 echo "<td>" . $data['date'] . "</td>";
                 echo "<td>" . $data['desc'] . "</td>";

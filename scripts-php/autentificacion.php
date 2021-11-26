@@ -10,8 +10,8 @@
         $count = mysqli_num_rows($result);  
         
         if($count == 1){  
-
             header('Location: ../php/main-registrado.php?id='.$username ); 
+           
         }  
         else{  
             header('Location: ../php/main.php'); 
