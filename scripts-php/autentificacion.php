@@ -1,6 +1,6 @@
 <?php      
     include 'db_conection.php';  
-
+    include 'sesion.php';  
     $username = $_POST['user'];  
     $password = $_POST['pass'];  
 
@@ -10,7 +10,7 @@
         $count = mysqli_num_rows($result);  
         
         if($count == 1){  
-            header('Location: ../php/main-registrado.php?id='.$username ); 
+            header("Location: ../php/main-registrado.php?id=".$username); 
            
         }  
         else{  

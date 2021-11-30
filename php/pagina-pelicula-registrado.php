@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Estilos/estilo-pagina-pelicula.css?v=<?php echo time(); ?>">
-    <?php include '../scripts-php/db_conection.php'; ?>
+    <?php include '../scripts-php/db_conection.php';?>
+    
     <title>Document</title>
 </head>
 
@@ -16,12 +17,8 @@
         <div class="loggin-box">
             <a href=
             <?php
-            $sql = "SELECT id FROM users WHERE id=" . $_GET['id'];
-            if ($result = $obj_conexion->query($sql)) {
-                $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-                echo "main-registrado.php?id=" . $row['id'] ;
-                $result->close();
-            }; ?>  
+                echo "main-registrado.php?id=".$_GET['id'];
+            ; ?>  
             > <button>Volver</button></a>
         </div>
     </div>
@@ -29,26 +26,27 @@
     <div class="contenedor-principal">
     <div class="informacion-pelicula">
             <?php
-            $records = mysqli_query($obj_conexion, "SELECT * FROM movie WHERE id=" . $_GET['id'] . "");
+            $records = mysqli_query($obj_conexion, "SELECT * FROM movie WHERE id=" . $_GET['id_pelicula'] . "");
             while ($data = mysqli_fetch_array($records)) {
                 echo "<img src=" . "../images/" . $data['url_pic'] . "  style='float:left;'>";
-                echo $data['title'] . "<br>";
-                echo $data['date'] . "<br>";
+
+                echo "<b>".$data['title'] . "</b><br>";
+                echo "<i>".$data['date'] . "</i><br>";
                 echo $data['desc'] . "<br>";
                 echo "<p>Nota pelicula</p><br>";
             ?>
-        </div>
+    </div>
     <?php
             }
     ?>
 
-        <form action="../scripts-php/insertar-comentario.php" method="$POST">
+        <form action="../scripts-php/insertar-comentario.php" method="POST">
             <textarea name="anadir-comentarios" id="anadir-comentarios" cols="30" rows="3" placeholder="Deje su comneario agui"></textarea>
-            <input type="submit" value="Dejar comentario" class="boton-comentario">
+           <a href="#"><input type="submit" value="Dejar comentario" class="boton-comentario"></a>
         </form>
 
         <?php
-        $records = mysqli_query($obj_conexion, "SELECT * FROM moviecomments WHERE movie_id=" . $_GET['id']);
+        $records = mysqli_query($obj_conexion, "SELECT * FROM moviecomments WHERE movie_id=" . $_GET['id_pelicula']);
         while ($data = mysqli_fetch_array($records)) {
         ?>
             <div class="caja-comentarios">
