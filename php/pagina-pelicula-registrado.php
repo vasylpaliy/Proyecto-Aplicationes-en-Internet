@@ -7,11 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Estilos/estilo-pagina-pelicula.css?v=<?php echo time(); ?>">
     <?php include '../scripts-php/db_conection.php';?>
-    
     <title>Document</title>
 </head>
-
 <body>
+        <!---------------------CABECERA DE LA PAGINA---------------------------->
     <div class="header">
         <img class="logo" src="../imagenes/film.svg" alt="Logo">
         <div class="loggin-box">
@@ -24,9 +23,10 @@
     </div>
 
     <div class="contenedor-principal">
+        <!----------OBTENEMOS TODA LA INF SOBRE LA PELICULA DE LA BD------------->
     <div class="informacion-pelicula">
             <?php
-            $records = mysqli_query($obj_conexion, "SELECT * FROM movie WHERE id=" . $_GET['id_pelicula'] . "");
+            $records = mysqli_query($conexion_servidor, "SELECT * FROM movie WHERE id=" . $_GET['id_pelicula'] . "");
             while ($data = mysqli_fetch_array($records)) {
                 echo "<img src=" . "../images/" . $data['url_pic'] . "  style='float:left;'>";
 
@@ -40,13 +40,20 @@
             }
     ?>
 
-        <form action="../scripts-php/insertar-comentario.php" method="POST">
-            <textarea name="anadir-comentarios" id="anadir-comentarios" cols="30" rows="3" placeholder="Deje su comneario agui"></textarea>
-           <a href="#"><input type="submit" value="Dejar comentario" class="boton-comentario"></a>
+        <!-------------FORMULARIO PARA INSERTAR COMENTARIOS EN LA BD------------>
+        <?php 
+    echo   " <form action="."../scripts-php/insertar-comentario.php method=GET>";
+        ?>
+            <input type="text" name="anadir-comentarios">
+            <input type="hidden" name="id_pelicula" value="<?php echo $_GET['id_pelicula'];?>">
+            <input type="hidden" name="id" value="<?php echo $_GET['id'];?>">
+           <input type="submit" value="Dejar comentario">
+
         </form>
 
+        <!-----------SACAMOS TODOS LOS COMENTARIOS DE LA BD--------------------->
         <?php
-        $records = mysqli_query($obj_conexion, "SELECT * FROM moviecomments WHERE movie_id=" . $_GET['id_pelicula']);
+        $records = mysqli_query($conexion_servidor, "SELECT * FROM moviecomments WHERE movie_id=" . $_GET['id_pelicula']);
         while ($data = mysqli_fetch_array($records)) {
         ?>
             <div class="caja-comentarios">
@@ -54,7 +61,7 @@
                     <?php
                     ?>
                     <?php
-                    $recordss = mysqli_query($obj_conexion, "SELECT name FROM users WHERE id='" . $data['user_id'] . "'");
+                    $recordss = mysqli_query($conexion_servidor, "SELECT name FROM users WHERE id='" . $data['user_id'] . "'");
                     while ($dataa = mysqli_fetch_array($recordss)) {
                         echo $dataa['name'];
                     }
@@ -66,9 +73,8 @@
             </div>
         <?php
         }
-        mysqli_close($obj_conexion);
+        mysqli_close($conexion_servidor);
         ?>
-
     </div>
 </body>
 

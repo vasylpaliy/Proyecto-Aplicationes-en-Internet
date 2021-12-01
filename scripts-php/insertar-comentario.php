@@ -1,13 +1,14 @@
 <?php 
 include 'db_conection.php';  
-$stmt = $obj_conexion->prepare("INSERT INTO moviecomments (movie_id, user_id, comment) VALUES (?, ?, ?)");
+$stmt = $conexion_servidor->prepare("INSERT INTO moviecomments (movie_id, user_id, comment) VALUES (?, ?, ?)");
 $stmt->bind_param("iis", $movie_id, $user_id, $comment);
-$movie_id= $_GET['id_pelicula']; // NO FUNCIONA, NO SE COJEN PARAMETROS DE LA URL
-$user_id=  $_GET['id'];   //// lo mismo
-$comment=$_REQUEST['anadir-comentarios'];
 
+$movie_id= $_GET['id_pelicula'];
+$user_id = $_GET['id'];
+$comment=$_REQUEST['anadir-comentarios'];
 
 $stmt ->execute();
 $stmt->close();
-$obj_conexion->close();
+$conexion_servidor->close();
+header("Location: ../php/pagina-pelicula-registrado.php?id_pelicula=".$movie_id."&id=".$user_id.""); 
 ?>

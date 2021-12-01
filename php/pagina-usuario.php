@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,36 +8,29 @@
     <?php include '../scripts-php/db_conection.php'; ?>
     <?php include '../scripts-php/sesion.php'; ?>
     <title>Trabajo AI</title>
-
 </head>
-
 <body>
-
+ <!---------------------CABECERA DE LA PAGINA----------------------------------->
     <div class="header">
-
         <img class="logo" src="../imagenes/film.svg" alt="Logo">
         <a href=<?php echo "main-registrado.php?id=" . $_SESSION['id_usuario']; ?>>Volver</a>
-
         <div class="loggin-box">
             <img class="logo-usuario" src="../imagenes/logo-usuario.svg" alt="Logo-usuario">
             <p class="nombre-usuario">
                 <?php
                 echo $_SESSION['nombre_usuario']; ?>
             </p>
-
             <a href="main.php">Salir</a>
         </div>
     </div>
 
     <div class="contenedor-principal">
-
+    <!---------------------DATOS DEL USUARIO DE LA BD---------------------------->
         <?php
-        $records = mysqli_query($obj_conexion, "SELECT * FROM users WHERE id=".$_SESSION['id_usuario']);
-
+        $records = mysqli_query($conexion_servidor, "SELECT * FROM users WHERE id=".$_SESSION['id_usuario']);
         while ($data = mysqli_fetch_array($records)) {
         ?>
-            <?php echo "<img src=" . $data['pic'] . "alt=" . "IMAGEN" . ">";    
-            ?>
+            <?php echo "<img src=" . $data['pic'] . "alt=" . "IMAGEN" . ">";   ?>
             <table id="tabla-usuario">
                 <tr class="cabecera-tabla">
                     <th width=40%>Datos</th>
@@ -57,16 +49,9 @@
                 <td>ocupacion:</td><td> " . $data['ocupacion'] . "</td>
                     </tr>";
         }
-        mysqli_close($obj_conexion);
+        mysqli_close($conexion_servidor);
             ?>
             </table>
-
-
-
-
     </div>
-
-
 </body>
-
 </html>

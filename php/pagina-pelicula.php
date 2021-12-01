@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <!-----------CABECERA DE LA PAGINA-------------------------------------------->
     <div class="header">
         <img class="logo" src="../imagenes/film.svg" alt="Logo">
         <div class="loggin-box">
@@ -19,11 +20,10 @@
     </div>
 
     <div class="contenedor-principal">
-
-
+        <!-----------SACAMOS POSTER DE LA PELICULA JUNTO CON SU INFORMACION------------>
         <div class="informacion-pelicula">
             <?php
-            $records = mysqli_query($obj_conexion, "SELECT * FROM movie WHERE id=" . $_GET['id'] . "");
+            $records = mysqli_query($conexion_servidor, "SELECT * FROM movie WHERE id=" . $_GET['id'] . "");
             while ($data = mysqli_fetch_array($records)) {
                 echo "<img src=" . "../images/" . $data['url_pic'] . "  style='float:left;'>";
                 echo $data['title'] . "<br>";
@@ -32,15 +32,11 @@
                 echo "<p>Nota pelicula</p><br>";
             ?>
         </div>
-
     <?php
             }
     ?>
-
-
-
     <?php
-    $records = mysqli_query($obj_conexion, "SELECT * FROM moviecomments WHERE movie_id=" . $_GET['id']);
+    $records = mysqli_query($conexion_servidor, "SELECT * FROM moviecomments WHERE movie_id=" . $_GET['id']);
     while ($data = mysqli_fetch_array($records)) {
     ?>
         <div class="caja-comentarios">
@@ -48,7 +44,7 @@
                 <?php
                 ?>
                 <?php
-                $recordss = mysqli_query($obj_conexion, "SELECT name FROM users WHERE id='" . $data['user_id'] . "'");
+                $recordss = mysqli_query($conexion_servidor, "SELECT name FROM users WHERE id='" . $data['user_id'] . "'");
                 while ($dataa = mysqli_fetch_array($recordss)) {
                     echo $dataa['name'];
                 }
@@ -60,9 +56,8 @@
         </div>
     <?php
     }
-    mysqli_close($obj_conexion);
+    mysqli_close($conexion_servidor);
     ?>
-
     </div>
 </body>
 
